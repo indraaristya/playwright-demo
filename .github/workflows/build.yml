@@ -1,4 +1,6 @@
 name: Build Docker Image
+on:
+  workflow_dispatch:
 jobs:
   docker:
     runs-on: ubuntu-latest
