@@ -11,13 +11,13 @@ jobs:
         with:
           image: ${{ secrets.DOCKERHUB_USERNAME }}/playwright-demo:latest
       - 
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Run Automation Test
         run: |
           docker run -v ${{ github.workspace }}/playwright-report:/app/playwright-report ${{ secrets.DOCKERHUB_USERNAME }}/playwright-demo:latest
       -
         name: Upload Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
           name: playwright-report

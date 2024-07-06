@@ -2,7 +2,7 @@ name: Run Test without Docker
 on:
   workflow_dispatch:
 jobs:
-  test:
+  run_web:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
