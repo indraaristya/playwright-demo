@@ -13,6 +13,10 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
           image: ${{ secrets.DOCKERHUB_USERNAME }}/playwright-demo:latest
+      -
+        name: Run Docker Container
+        uses: ${{ secrets.DOCKERHUB_USERNAME }}/playwright-demo:latest
+        with:
           options: -v ${{ github.workspace }}:/app
       -
         name: Upload Report
