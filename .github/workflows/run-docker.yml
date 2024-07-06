@@ -14,7 +14,7 @@ jobs:
         with:
           image: ${{ secrets.DOCKERHUB_USERNAME }}/playwright-demo:latest
           options: -v ${{ github.workspace }}:/app
-          run: npx playwright test
+          run: docker run -v ${{ github.workspace }}:/app ${{ secrets.DOCKERHUB_USERNAME }}/playwright-demo:latest
       -
         name: Upload Report
         uses: actions/upload-artifact@v3
