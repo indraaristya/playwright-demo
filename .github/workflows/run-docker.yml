@@ -12,7 +12,7 @@ jobs:
           image: ${{ secrets.DOCKERHUB_USERNAME }}/playwright-demo:latest
       - 
         uses: actions/checkout@v2
-      - name: Run
+      - name: Run Automation Test
         run: |
           docker run -v ${{ github.workspace }}/playwright-report:/app/playwright-report ${{ secrets.DOCKERHUB_USERNAME }}/playwright-demo:latest
       -
