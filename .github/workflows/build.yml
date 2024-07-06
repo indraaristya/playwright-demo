@@ -23,4 +23,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: playwright-demo:latest
+          tags:  ${{ secrets.DOCKERHUB_USERNAME }}/playwright-demo:latest
