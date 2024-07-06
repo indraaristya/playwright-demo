@@ -5,19 +5,16 @@ jobs:
   run_web:
     runs-on: ubuntu-latest
     steps:
-      - 
-        name: Checkout 
-        uses: actions/checkout@v2
       -
         name: Pull Docker Image
         uses: addnab/docker-run-action@v3
         with:
           image: ${{ secrets.DOCKERHUB_USERNAME }}/playwright-demo:latest
-      -
-        name: Run Docker Container
-        uses: ${{ secrets.DOCKERHUB_USERNAME }}/playwright-demo:latest
-        with:
-          options: -v ${{ github.workspace }}:/app
+      - 
+        uses: actions/checkout@v2
+      - name: Run
+        run: |
+          docker run -v ${{ github.workspace }}/playwright-report:/app/playwright-report ${{ secrets.DOCKERHUB_USERNAME }}/playwright-demo:latest
       -
         name: Upload Report
         uses: actions/upload-artifact@v3
