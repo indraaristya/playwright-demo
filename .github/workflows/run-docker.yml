@@ -15,9 +15,7 @@ jobs:
           image: ${{ secrets.DOCKERHUB_USERNAME }}/playwright-demo:latest
       -
         name: Run Docker Container
-        uses: actions/checkout@v2
-        with:
-          run: docker run -v ${{ github.workspace }}:/app ${{ secrets.DOCKERHUB_USERNAME }}/playwright-demo:latest
+        run: docker run -v ${{ github.workspace }}:/app ${{ secrets.DOCKERHUB_USERNAME }}/playwright-demo:latest
       -
         name: Upload Report
         uses: actions/upload-artifact@v3
